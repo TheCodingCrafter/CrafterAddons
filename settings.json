@@ -45,7 +45,7 @@
             {
                 "type": 6,
                 "name": "enable_highlight_starred_mobs_fels",
-                "value": true
+                "value": false
             },
             {
                 "type": 5,

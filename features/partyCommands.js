@@ -65,12 +65,11 @@ register("command", () => {
     pingServer()
 }).setName("ca_ping")
 
-register("chat", (name, iman, msg, event) => {
+register("chat", (rank, name, msg, event) => {
     let diff = Date.now() - LastUsed
     if (diff < parseInt(settings().party_command_delay)) return
     LastUsed = Date.now()
 
-    name = name + iman
     if (msg.startsWith(`${settings().party_command_prefix}rng`) && settings().enable_rng_command) { // RNG COMMAND
         // sleep for 200ms
         setTimeout(() => {
@@ -147,5 +146,5 @@ register("chat", (name, iman, msg, event) => {
     else if (msg.startsWith(`${settings().party_command_prefix}tps`) && settings().enable_tps_command) { // TPS COMMAND
         requestedTPS = true
     }
-}).setCriteria("Party >${*} ${name}${iman}: ${msg}")
+}).setCriteria(/^Party > (?:\[([^\]]*?)\] )?(\w{1,16})(?: [♲ቾ⚒])?: (.+)$/)
 
