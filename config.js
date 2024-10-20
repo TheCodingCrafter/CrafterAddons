@@ -83,6 +83,14 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         subcategory: "General"
     })
 
+    .addSwitch({
+        configName: "enable_highlight_starred_mobs_fels",
+        title: "Highlight All Fels",
+        description: "Highlight all Fels, not just starred.",
+        category: "Dungeons",
+        subcategory: "General",
+    })
+
     .addColorPicker({
         configName: "starred_mobs_highlight_color",
         title: "Starred Mobs Highlight Color",

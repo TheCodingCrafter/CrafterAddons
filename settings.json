@@ -43,6 +43,11 @@
                 "value": true
             },
             {
+                "type": 6,
+                "name": "enable_highlight_starred_mobs_fels",
+                "value": true
+            },
+            {
                 "type": 5,
                 "name": "starred_mobs_highlight_color",
                 "value": [

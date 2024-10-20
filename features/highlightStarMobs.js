@@ -1,5 +1,7 @@
 armor_stand = Java.type("net.minecraft.entity.item.EntityArmorStand")
 other_player_mp = Java.type("net.minecraft.client.entity.EntityOtherPlayerMP")
+eman = Java.type("net.minecraft.client.model.EndermanModel")
+
 import { renderBoxOutline } from "../../BloomCore/RenderUtils"
 import settings from "../config"
 
@@ -29,6 +31,11 @@ register("tick", () => {
 
     World.getAllEntities().forEach(entity => {
         const match = entity.getName().match(starMobRegex)
+        if (!match && settings().enable_highlight_starred_mobs_fels && entity.getName().includes("Fels")) {
+            mob = new Mob(entity.getX(), entity.getY(), entity.getZ(), 0.8, 0, settings().starred_mobs_highlight_color_fels, true)
+            star.push(mob)
+            return
+        }
         if (!match) return false
 
         const [_, mobName, sa] = match
