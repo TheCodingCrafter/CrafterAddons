@@ -1,0 +1,187 @@
+[
+    {
+        "category": "Dungeons",
+        "settings": [
+            {
+                "type": 6,
+                "name": "enable_mask_timers",
+                "value": true
+            },
+            {
+                "type": 4,
+                "name": "mask_timers_x_loc",
+                "value": "464"
+            },
+            {
+                "type": 4,
+                "name": "mask_timers_y_loc",
+                "value": "265"
+            },
+            {
+                "type": 4,
+                "name": "mask_timers_scale",
+                "value": "2"
+            },
+            {
+                "type": 4,
+                "name": "phoenix_pet_lvl",
+                "value": "76"
+            },
+            {
+                "type": 6,
+                "name": "enable_mask_notifications",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "enable_notify_party_mask",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "enable_highlight_starred_mobs",
+                "value": true
+            },
+            {
+                "type": 5,
+                "name": "starred_mobs_highlight_color",
+                "value": [
+                    85,
+                    232,
+                    255,
+                    255
+                ]
+            },
+            {
+                "type": 5,
+                "name": "starred_mobs_highlight_color_fels",
+                "value": [
+                    251,
+                    0,
+                    255,
+                    255
+                ]
+            },
+            {
+                "type": 4,
+                "name": "starred_mobs_highlight_width",
+                "value": "3"
+            },
+            {
+                "type": 6,
+                "name": "enable_blood_done_title",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "enable_blood_done_notify",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "enable_arrow_stack_locations",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "enable_terminal_waypoints",
+                "value": true
+            }
+        ]
+    },
+    {
+        "category": "General",
+        "settings": [
+            {
+                "type": 6,
+                "name": "enable_party_chat_prefix",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "enable_guild_chat_prefix",
+                "value": true
+            },
+            {
+                "type": 4,
+                "name": "party_chat_format",
+                "value": "&9P &8> &${color}${name}&r: ${message}"
+            },
+            {
+                "type": 4,
+                "name": "guild_chat_format",
+                "value": "&2G &8> &${color}${name}&r &3[${guild_rank}]&r: ${message}"
+            },
+            {
+                "type": 6,
+                "name": "enable_chat_sound",
+                "value": true
+            },
+            {
+                "type": 4,
+                "name": "chat_sound",
+                "value": "random.orb"
+            }
+        ]
+    },
+    {
+        "category": "Party Commands",
+        "settings": [
+            {
+                "type": 4,
+                "name": "party_command_delay",
+                "value": "200"
+            },
+            {
+                "type": 4,
+                "name": "party_command_prefix",
+                "value": "!"
+            },
+            {
+                "type": 6,
+                "name": "enable_rng_command",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "enable_dice_command",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "enable_8ball_command",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "enable_ping_command",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "enable_tps_command",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "enable_floor_command",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "enable_ptme_command",
+                "value": false
+            },
+            {
+                "type": 6,
+                "name": "enable_warp_command",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "enable_allinv_command",
+                "value": true
+            }
+        ]
+    }
+]

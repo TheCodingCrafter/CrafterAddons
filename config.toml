@@ -1,0 +1,51 @@
+
+[general]
+
+	[general.chat]
+		play_sound_on_chat_message = true
+		guild_chat_formatter = true
+		chat_sound = "random.orb"
+		party_chat_format = "    &9P &8> &${color}${name}&r: ${message}"
+		guild_chat_format = "    &2G &8> &${color}${name}&r &3[${guild_rank}]&r: ${message}"
+		party_chat_formatter = true
+
+	[general.category]
+		text = "test"
+
+[dungeons]
+
+	[dungeons.general]
+		highlight_fels = true
+		highlight_starred_mobs = true
+		starred_mobs_highlight_width = "3"
+		starred_mobs_esp = true
+		starred_mobs_highlight_color = "255,56,255,0"
+		fels_highlight_color = "255,0,255,0"
+
+	[dungeons.masks]
+		mask_timers_y_value = "265"
+		mask_timers_scale = "2"
+		phoenix_pet_level = "76"
+		mask_timers_x_value = "462"
+		mask_timers = true
+		mask_notifications = true
+
+	[dungeons.m7]
+		drag_timers_y_value = "225"
+		drag_timers_x_value = "452"
+		drag_timers_scale = "1.2"
+		drag_timers = true
+		arrowstack_locations = true
+
+	[dungeons.mask_timers]
+		mask_timers_y_value = "265"
+		y_value = "265"
+		mask_timers_scale = "2"
+		scale = 2.0
+		mask_timers_x_value = "464"
+		mask_timers = true
+		x_value = "464"
+
+	[dungeons.mask_notifications]
+		mask_notifications = true
+

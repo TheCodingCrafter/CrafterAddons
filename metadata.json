@@ -1,0 +1,8 @@
+{
+    "name": "CrafterAddons",
+    "creator": "Crafterhacker",
+    "description": "Uhhh, insert dungeons ramble here...",
+    "version": "1.0.0",
+    "entry": "index.js",
+    "requires": ["Amaterasu"]
+  }
