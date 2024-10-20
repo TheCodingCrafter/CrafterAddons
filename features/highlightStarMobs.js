@@ -1,6 +1,5 @@
 armor_stand = Java.type("net.minecraft.entity.item.EntityArmorStand")
 other_player_mp = Java.type("net.minecraft.client.entity.EntityOtherPlayerMP")
-eman = Java.type("net.minecraft.client.model.EndermanModel")
 
 import { renderBoxOutline } from "../../BloomCore/RenderUtils"
 import settings from "../config"
