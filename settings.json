@@ -91,6 +91,31 @@
                 "type": 6,
                 "name": "enable_terminal_waypoints",
                 "value": true
+            },
+            {
+                "type": 6,
+                "name": "highlight_dropped_keys",
+                "value": true
+            },
+            {
+                "type": 5,
+                "name": "wither_keys_color",
+                "value": [
+                    0,
+                    0,
+                    0,
+                    127
+                ]
+            },
+            {
+                "type": 5,
+                "name": "blood_keys_color",
+                "value": [
+                    204,
+                    12.75,
+                    12.75,
+                    255
+                ]
             }
         ]
     },

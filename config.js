@@ -286,6 +286,36 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         shouldShow: (config) => config.enable_etherwarp_overlay
     })
 
+    .addSwitch({
+        configName: "highlight_dropped_keys",
+        title: "Highlight Dropped Keys",
+        description: "Highlight dropped keys in dungeons.",
+        category: "Dungeons",
+        subcategory: "General"
+    })
+
+    .addColorPicker({
+        configName: "wither_keys_color",
+        title: "Wither Keys Highlight Color",
+        description: "The color to use for highlighting dropped keys.",
+        category: "Dungeons",
+        subcategory: "General",
+        value: [0, 0, 0, 255],
+
+        shouldShow: (config) => config.highlight_dropped_keys
+    })
+
+    .addColorPicker({
+        configName: "blood_keys_color",
+        title: "Blood Keys Highlight Color",
+        description: "The color to use for highlighting dropped keys.",
+        category: "Dungeons",
+        subcategory: "General",
+        value: [204, 12.75, 12.75, 255],
+
+        shouldShow: (config) => config.highlight_dropped_keys
+    })
+
     // PARTY
 
     .addTextInput({
