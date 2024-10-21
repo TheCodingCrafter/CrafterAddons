@@ -1,0 +1,4 @@
+settings.json
+Notes.md
+TODO.md
+.gitignore
