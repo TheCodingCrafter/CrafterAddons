@@ -126,6 +126,46 @@
                 "type": 4,
                 "name": "chat_sound",
                 "value": "random.orb"
+            },
+            {
+                "type": 6,
+                "name": "enable_etherwarp_overlay",
+                "value": true
+            },
+            {
+                "type": 5,
+                "name": "etherwarp_overlay_color",
+                "value": [
+                    0,
+                    255,
+                    0,
+                    255
+                ]
+            },
+            {
+                "type": 5,
+                "name": "etherwarp_overlay_fail_color",
+                "value": [
+                    255,
+                    0,
+                    0,
+                    255
+                ]
+            },
+            {
+                "type": 6,
+                "name": "etherwarp_overlay_show_fail",
+                "value": true
+            },
+            {
+                "type": 3,
+                "name": "etherwarp_overlay_render_type",
+                "value": 1
+            },
+            {
+                "type": 6,
+                "name": "etherwarp_overlay_sneak",
+                "value": true
             }
         ]
     },

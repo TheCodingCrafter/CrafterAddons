@@ -221,6 +221,71 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         value: "random.orb"
     })
 
+    // QOL
+    // ETHERWARP OVERLAY
+    .addSwitch({
+        configName: "enable_etherwarp_overlay",
+        title: "Etherwarp Overlay",
+        description: "Show an overlay at the position of the etherwarp.",
+        category: "General",
+        subcategory: "QOL"
+    })
+
+    .addColorPicker({
+        configName: "etherwarp_overlay_color",
+        title: "Etherwarp Overlay Color",
+        description: "The color to use for the etherwarp overlay.",
+        category: "General",
+        subcategory: "QOL",
+        value: [0, 255, 0, 255],
+
+        shouldShow: (config) => config.enable_etherwarp_overlay
+    })
+
+    .addColorPicker({
+        configName: "etherwarp_overlay_fail_color",
+        title: "Etherwarp Overlay Color (Fail)",
+        description: "The color to use for the etherwarp overlay if the teleport is invalid.",
+        category: "General",
+        subcategory: "QOL",
+        value: [255, 0, 0, 255],
+
+        shouldShow: (config) => config.enable_etherwarp_overlay
+    })
+
+    .addSwitch({
+        configName: "etherwarp_overlay_show_fail",
+        title: "Show on Fail",
+        description: "Show the overlay even if the teleport is invalid.",
+        category: "General",
+        subcategory: "QOL",
+
+        shouldShow: (config) => config.enable_etherwarp_overlay
+    })
+
+    .addSelection({
+        configName: "etherwarp_overlay_render_type",
+        title: "Highlight Type",
+        description: "The type of highlight to use for the overlay.",
+        category: "General",
+        subcategory: "QOL",
+        value: 1,
+        options: ["outline", "filled", "both"],
+
+        shouldShow: (config) => config.enable_etherwarp_overlay
+    })
+
+    .addSwitch({
+        configName: "etherwarp_overlay_sneak",
+        title: "Only show while Sneaking",
+        description: "Only show the overlay while sneaking.",
+        category: "General",
+        subcategory: "QOL",
+        value: true,
+
+        shouldShow: (config) => config.enable_etherwarp_overlay
+    })
+
     // PARTY
 
     .addTextInput({
@@ -318,7 +383,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
     })
 
 
-const config = new Settings("&3Crafter&bAddons&r", defaultConf, "color_scheme.json")
+const config = new Settings("CrafterAddons", defaultConf, "color_scheme.json", titleText="&3Crafter&bAddons&r")
     .setCommand("ca", ["crafter", "crafteraddons"])
 
 

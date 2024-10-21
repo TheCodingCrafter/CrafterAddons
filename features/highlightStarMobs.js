@@ -2,6 +2,7 @@ armor_stand = Java.type("net.minecraft.entity.item.EntityArmorStand")
 other_player_mp = Java.type("net.minecraft.client.entity.EntityOtherPlayerMP")
 
 import { renderBoxOutline } from "../../BloomCore/RenderUtils"
+import { registerWhen } from "../../BloomCore/utils/Utils"
 import settings from "../config"
 
 const starMobRegex = /^§6✯ (?:§.)*(.+)§r.+§c❤$|^(Shadow Assassin)$/
@@ -24,8 +25,7 @@ class Mob {
 
 let mobs = []
 
-register("tick", () => {
-    if (!settings().enable_highlight_starred_mobs) return
+registerWhen(register("tick", () => {
     star = []
 
     World.getAllEntities().forEach(entity => {
@@ -66,14 +66,13 @@ register("tick", () => {
     })
 
     mobs = star
-})
+}), () => settings().enable_highlight_starred_mobs)
 
 
-register("renderWorld", () => {
-    if (!settings().enable_highlight_starred_mobs) return
+registerWhen(register("renderWorld", () => {
     if (!mobs.length) {return}
     mobs.forEach(mob => {
         y = mob.isFels ? mob.y - 3 : mob.y - mob.ceil_height
         renderBoxOutline(mob.x, y, mob.z, 0.8, mob.height, mob.r, mob.g, mob.b, mob.a, parseInt(settings().starred_mobs_highlight_width), false)
     })
-})
+}), () => settings().enable_highlight_starred_mobs)

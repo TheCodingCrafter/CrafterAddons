@@ -1,4 +1,5 @@
 import settings from "../config"
+import { registerWhen } from "../../BloomCore/utils/Utils"
 
 armor_stand = Java.type("net.minecraft.entity.item.EntityArmorStand")
 
@@ -14,8 +15,7 @@ register("command", () => {
 let terminals = []
 
 
-register("step", () => {
-    if (!settings().enable_terminal_waypoints) return
+registerWhen(register("step", () => {
     terminals = []
     let stands = World.getAllEntitiesOfType(armor_stand.class)
     stands.forEach(stand => {
@@ -23,10 +23,9 @@ register("step", () => {
             terminals.push(stand)
         }
     })
-}).setFps(2)
+}).setFps(2), () => settings().enable_terminal_waypoints)
 
-register("renderWorld", () => {
-    if (!settings().enable_terminal_waypoints) return
+registerWhen(register("renderWorld", () => {
     terminals.forEach(term => {
         let pos = new Vec3i(term.getX(), term.getY()+1, term.getZ())
         let ppos = new Vec3i(Player.getX(), Player.getY(), Player.getZ())
@@ -35,4 +34,4 @@ register("renderWorld", () => {
         let str = term.getName() + ` §8(§b${dist}m§8)` // why does '&' not work here???
         Tessellator.drawString(str, term.getX(), term.getY()+1, term.getZ())
     })
-})
+}), () => settings().enable_terminal_waypoints)

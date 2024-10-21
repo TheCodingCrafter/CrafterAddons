@@ -1,17 +1,18 @@
 import settings from "../config";
+import { registerWhen } from "../../BloomCore/utils/Utils";
 
 function padFloat(str) {
     const num = parseFloat(str);
     return String(num.toFixed(2).padEnd(4, '0'));
 }
 
-register("renderOverlay", renderMaskTimer);
+registerWhen(register("renderOverlay", renderMaskTimer), () => settings().enable_mask_timers);
 let maskTimer = 0;
 const maskTimerDisplay = new Text("", 473, 265).setColor(Renderer.GREEN);
 maskTimerDisplay.setScale(2)
 
 function renderMaskTimer() {
-    if (maskTimer > 0 && settings().enable_mask_timers) {
+    if (maskTimer > 0) {
         maskTimerDisplay.draw();
     }
 }
@@ -23,9 +24,8 @@ function updatemaskTimersSettings() {
 }
 
 
-register("tick", onTickFunc);
+registerWhen(register("tick", onTickFunc), () => settings().enable_mask_timers);
 function onTickFunc() {
-    if (!settings().enable_mask_timers) { return; }
 
     if (maskTimer > 0) {
         maskTimer--;
