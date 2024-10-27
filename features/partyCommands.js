@@ -41,12 +41,12 @@ function pingServer() {
     beginTime = Date.now()
 }
 
-register("chat", (event) => {
+function recievePingEvent(event){
     endTime = Date.now()
     let ping = endTime - beginTime
     WaitingOnPing = false
     if (!pingCMD) {
-        ChatLib.chat(`&3Ping&r: &9${cping} &bms`)
+        ChatLib.chat(`&3Ping&r: &9${ping} &bms`)
     } else {
         pingCMD = false
         setTimeout(() => {
@@ -58,12 +58,15 @@ register("chat", (event) => {
     beginTime = 0
     endTime = 0
 
-}).setCriteria(`Unknown command. Type "/help" for help. ('abcabcabcabcabcabcabcabcabcabcabcabc')`)
+}
+
+register("chat", recievePingEvent).setCriteria(`Unknown command. Type "/help" for help. ('abcabcabcabcabcabcabcabcabcabcabcabc')`)
+register("chat", recievePingEvent).setCriteria(`Unknown command. Type "help" for help. ('abcabcabcabcabcabcabcabcabcabcabcabc')`) // WHY :sob:
 
 
 register("command", () => {
     pingServer()
-}).setName("ca_ping")
+}).setName("ping")
 
 register("chat", (rank, name, msg, event) => {
     let diff = Date.now() - LastUsed
@@ -142,9 +145,6 @@ register("chat", (rank, name, msg, event) => {
         setTimeout(() => {
             ChatLib.command(`p settings allinvite`)
         }, parseInt(settings().party_command_delay))
-    }
-    else if (msg.startsWith(`${settings().party_command_prefix}tps`) && settings().enable_tps_command) { // TPS COMMAND
-        requestedTPS = true
     }
 }).setCriteria(/^Party > (?:\[([^\]]*?)\] )?(\w{1,16})(?: [♲ቾ⚒])?: (.+)$/)
 

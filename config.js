@@ -6,7 +6,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
     // MASK TIMERS
     .addSwitch({
         configName: "enable_mask_timers",
-        title: "Mask Timers",
+        title: "&6Mask Timers",
         description: "Whether or not to enable mask timers.",
         category: "Dungeons",
         subcategory: "Masks"
@@ -60,14 +60,14 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
     // MASK NOTIFICATIONS
     .addSwitch({
         configName: "enable_mask_notifications",
-        title: "Mask Notifications",
+        title: "&6Mask Notifications",
         description: "Whether or not to enable mask notifications.",
         category: "Dungeons",
         subcategory: "Masks"
     })
     .addSwitch({
         configName: "enable_notify_party_mask",
-        title: "Notify Party",
+        title: "&6Notify Party",
         description: "Sends a message to party chat when a mask is activated.",
         category: "Dungeons",
         subcategory: "Masks"
@@ -77,7 +77,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
     // HIGHLIGHT STARRED MOBS
     .addSwitch({
         configName: "enable_highlight_starred_mobs",
-        title: "Highlight Starred Mobs",
+        title: "&6Highlight Starred Mobs",
         description: "Highlight starred mobs and Shadow Assassins in dungeons.",
         category: "Dungeons",
         subcategory: "General"
@@ -89,6 +89,8 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         description: "Highlight all Fels, not just starred.",
         category: "Dungeons",
         subcategory: "General",
+
+        shouldShow: (config) => config.enable_highlight_starred_mobs
     })
 
     .addColorPicker({
@@ -128,7 +130,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
     // BLOOD HELPER
     .addSwitch({
         configName: "enable_blood_done_title",
-        title: "Watcher Done Title",
+        title: "&6Watcher Done Title",
         description: "Show a title when blood room is done.",
         category: "Dungeons",
         subcategory: "General"
@@ -136,7 +138,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
 
     .addSwitch({
         configName: "enable_blood_done_notify",
-        title: "Notify Party",
+        title: "&6Notify Party",
         description: "Notify party chat when blood room is done.",
         category: "Dungeons",
         subcategory: "General"
@@ -147,7 +149,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
     // ARRROW STACK LOCATIONS
     .addSwitch({
         configName: "enable_arrow_stack_locations",
-        title: "Arrow Stack Locations",
+        title: "&6Arrow Stack Locations",
         description: "Show arrow stack locations in m7.",
         category: "Dungeons",
         subcategory: "M7"
@@ -156,7 +158,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
     // TERMINAL WAYPOINTS
     .addSwitch({
         configName: "enable_terminal_waypoints",
-        title: "Terminal Waypoints",
+        title: "&6Terminal Waypoints",
         description: "Show terminal waypoints in dungeons.",
         category: "Dungeons",
         subcategory: "M7"
@@ -168,7 +170,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
     // CHAT PREFIX
     .addSwitch({
         configName: "enable_party_chat_prefix",
-        title: "Party chat formatting",
+        title: "&6Party chat formatting",
         description: "Formats chat messages from party to look cleaner.",
         category: "General",
         subcategory: "Chat"
@@ -176,7 +178,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
 
     .addSwitch({
         configName: "enable_guild_chat_prefix",
-        title: "Guild chat formatting",
+        title: "&6Guild chat formatting",
         description: "Formats chat messages from guild to look cleaner.",
         category: "General",
         subcategory: "Chat"
@@ -189,7 +191,9 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         category: "General",
         subcategory: "Chat",
         placeholder: "&9P &8> &${color}${name}&r: ${message}",
-        value: "&9P &8> &${color}${name}&r: ${message}"
+        value: "&9P &8> &${color}${name}&r: ${message}",
+
+        shouldShow: (config) => config.enable_party_chat_prefix
     })
 
     .addTextInput({
@@ -199,13 +203,15 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         category: "General",
         subcategory: "Chat",
         placeholder: "&2G &8> &${color}${name}&r &3[${guild_rank}]&r: ${message}",
-        value: "&2G &8> &${color}${name}&r &3[${guild_rank}]&r: ${message}"
+        value: "&2G &8> &${color}${name}&r &3[${guild_rank}]&r: ${message}",
+
+        shouldShow: (config) => config.enable_guild_chat_prefix
     })
 
     // sound
     .addSwitch({
         configName: "enable_chat_sound",
-        title: "Play sound on chat message",
+        title: "&6Play sound on chat message",
         description: "Play a sound when a chat message is recieved.",
         category: "General",
         subcategory: "Chat"
@@ -218,14 +224,16 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         category: "General",
         subcategory: "Chat",
         placeholder: "random.orb",
-        value: "random.orb"
+        value: "random.orb",
+
+        shouldShow: (config) => config.enable_chat_sound
     })
 
     // QOL
     // ETHERWARP OVERLAY
     .addSwitch({
         configName: "enable_etherwarp_overlay",
-        title: "Etherwarp Overlay",
+        title: "&6Etherwarp Overlay",
         description: "Show an overlay at the position of the etherwarp.",
         category: "General",
         subcategory: "QOL"
@@ -288,7 +296,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
 
     .addSwitch({
         configName: "highlight_dropped_keys",
-        title: "Highlight Dropped Keys",
+        title: "&6Highlight Dropped Keys",
         description: "Highlight dropped keys in dungeons.",
         category: "Dungeons",
         subcategory: "General"
@@ -316,11 +324,41 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         shouldShow: (config) => config.highlight_dropped_keys
     })
 
+    // BOX NECRON
+    .addSwitch({
+        configName: "enable_box_necron",
+        title: "Box Necron",
+        description: "Highlight Necron, Storm, Goldor, and Maxor in dungeons.",
+        category: "Dungeons",
+        subcategory: "General"
+    })
+    
+    .addColorPicker({
+        configName: "box_necron_color",
+        title: "Box Necron Color",
+        description: "The color to use for highlighting.",
+        category: "Dungeons",
+        subcategory: "General",
+
+        shouldShow: (config) => config.enable_box_necron
+    })
+    
+    // RAG AXE
+    .addSwitch({
+        configName: "enable_rag_axe_title",
+        title: "&6Rag Axe Notification",
+        description: "Show a title when Rag Axe finishes casting.",
+        category: "Dungeons",
+        subcategory: "General"
+    })
+
+
+
     // PARTY
 
     .addTextInput({
         configName: "party_command_delay",
-        title: "Party Command Delay",
+        title: "&6Party Command Delay",
         description: "how long to wait before sending a response (in ms)",
         category: "Party Commands",
         subcategory: "Config",
@@ -330,7 +368,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
 
     .addTextInput({
         configName: "party_command_prefix",
-        title: "Party Command Prefix",
+        title: "&6Party Command Prefix",
         description: "The prefix to use for party commands.",
         category: "Party Commands",
         subcategory: "Config",
@@ -342,7 +380,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
 
     .addSwitch({
         configName: "enable_rng_command",
-        title: "rng",
+        title: "&6rng",
         description: "Enable the rng party command.",
         category: "Party Commands",
         subcategory: "Commands"
@@ -350,7 +388,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
 
     .addSwitch({
         configName: "enable_dice_command",
-        title: "dice",
+        title: "&6dice",
         description: "Enable the dice party command.",
         category: "Party Commands",
         subcategory: "Commands"
@@ -358,7 +396,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
 
     .addSwitch({
         configName: "enable_8ball_command",
-        title: "8ball",
+        title: "&68ball",
         description: "Enable the 8ball party command.",
         category: "Party Commands",
         subcategory: "Commands"
@@ -366,7 +404,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
 
     .addSwitch({
         configName: "enable_ping_command",
-        title: "ping",
+        title: "&6ping",
         description: "Enable the ping party command.",
         category: "Party Commands",
         subcategory: "Commands"
@@ -374,7 +412,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
 
     .addSwitch({
         configName: "enable_tps_command",
-        title: "tps",
+        title: "&6tps",
         description: "Enable the tps party command.",
         category: "Party Commands",
         subcategory: "Commands"
@@ -382,7 +420,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
 
     .addSwitch({
         configName: "enable_floor_command",
-        title: "Dungeon Floor command",
+        title: "&6Dungeon Floor command",
         description: "Enable the floor party command. (eg. !f7, !m5)",
         category: "Party Commands",
         subcategory: "Commands"
@@ -390,7 +428,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
 
     .addSwitch({
         configName: "enable_ptme_command",
-        title: "ptme",
+        title: "&6ptme",
         description: "Enable the ptme party command.",
         category: "Party Commands",
         subcategory: "Commands"
@@ -398,7 +436,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
 
     .addSwitch({
         configName: "enable_warp_command",
-        title: "warp",
+        title: "&6warp",
         description: "Enable the warp party command.",
         category: "Party Commands",
         subcategory: "Commands"
@@ -406,7 +444,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
 
     .addSwitch({
         configName: "enable_allinv_command",
-        title: "allinv",
+        title: "&6allinv",
         description: "Enable the allinv party command.",
         category: "Party Commands",
         subcategory: "Commands"
