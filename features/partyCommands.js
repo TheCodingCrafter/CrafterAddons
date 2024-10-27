@@ -46,7 +46,15 @@ function recievePingEvent(event){
     let ping = endTime - beginTime
     WaitingOnPing = false
     if (!pingCMD) {
-        ChatLib.chat(`&3Ping&r: &9${ping} &bms`)
+        let code = ""
+        if (ping < 100) {
+            code = "a"
+        } else if (ping < 200) {
+            code = "6"
+        } else {
+            code = "c"
+        }
+        ChatLib.chat(`&3Ping&r: &${code}${ping} &bms`)
     } else {
         pingCMD = false
         setTimeout(() => {

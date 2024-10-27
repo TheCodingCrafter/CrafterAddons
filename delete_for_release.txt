@@ -2,3 +2,4 @@ settings.json
 Notes.md
 TODO.md
 .gitignore
+.data.json
