@@ -35,6 +35,8 @@ QOL features for Hypixel Skyblock, mostly aimed at dungeons.
 3. run `/ct load`
 
 
+Join the discord at https://discord.gg/Wj8vcWxGBG.
+
 ## Credits
 - BloomCore (library)
 - UwUAddons (code to detect rag axe)

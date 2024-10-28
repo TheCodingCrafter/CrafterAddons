@@ -1,7 +1,7 @@
 armor_stand = Java.type("net.minecraft.entity.item.EntityArmorStand")
 other_player_mp = Java.type("net.minecraft.client.entity.EntityOtherPlayerMP")
 
-import { renderBoxOutline } from "../../BloomCore/RenderUtils"
+import { renderBoxOutline, renderFilledBox } from "../../BloomCore/RenderUtils"
 import { registerWhen } from "../../BloomCore/utils/Utils"
 import settings from "../config"
 
@@ -73,6 +73,11 @@ registerWhen(register("renderWorld", () => {
     if (!mobs.length) {return}
     mobs.forEach(mob => {
         y = mob.isFels ? mob.y - 3 : mob.y - mob.ceil_height
-        renderBoxOutline(mob.x, y, mob.z, 0.8, mob.height, mob.r, mob.g, mob.b, mob.a, parseInt(settings().starred_mobs_highlight_width), false)
+        if (settings().starred_mobs_highlight_type == 0) renderBoxOutline(mob.x, y, mob.z, 0.8, mob.height, mob.r, mob.g, mob.b, mob.a, parseInt(settings().starred_mobs_highlight_width), false)
+        else if (settings().starred_mobs_highlight_type == 1) renderFilledBox(mob.x, y, mob.z, 0.8, mob.height, mob.r, mob.g, mob.b, mob.a * 0.4, false)
+        else if (settings().starred_mobs_highlight_type == 2) {
+            renderBoxOutline(mob.x, y, mob.z, 0.8, mob.height, mob.r, mob.g, mob.b, mob.a, parseInt(settings().starred_mobs_highlight_width), false)
+            renderFilledBox(mob.x, y, mob.z, 0.8, mob.height, mob.r, mob.g, mob.b, mob.a * 0.4, false)
+        }
     })
 }), () => settings().enable_highlight_starred_mobs)

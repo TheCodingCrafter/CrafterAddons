@@ -13,6 +13,7 @@ register("tick", () => {
                         `   &r&d/ping &3&l- &r&bDisplays your ping to the server\n` +
                         `\n` +
                         `   &r&dGithub: https://github.com/TheCodingCrafter/CrafterAddons\n` +
+                        `   &r&dDiscord: https://discord.gg/Wj8vcWxGBG\n` +
                         `&b&l-----------------------------------------------------`
 
         ChatLib.chat(message)

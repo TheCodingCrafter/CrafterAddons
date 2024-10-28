@@ -31,8 +31,7 @@ register("chat", (rank, name, msg, event) => {
     
 
     if (!(rank in rank_mapping)) {
-        //printErrorMessage("Error occured whilst parsing chat message, failed to parse rank correctly.")
-        // TODO: redo this with regex so it works right
+        printErrorMessage("Error occured whilst parsing chat message, failed to parse rank correctly.")
         return
     }
     let rm = rank_mapping[rank] || []

@@ -2,6 +2,29 @@ import Settings from "../Amaterasu/core/Settings"
 import DefaultConfig from "../Amaterasu/core/DefaultConfig"
 
 const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
+    .addButton({
+        configName: "github_button",
+        title: "Github",
+        description: "Opens the Github page for this module.",
+        category: "General",
+        subcategory: "Links",
+
+        onClick: () => {
+            java.awt.Desktop.getDesktop().browse(new java.net.URI("https://github.com/TheCodingCrafter/CrafterAddons"))
+        }
+    })
+
+    .addButton({
+        configName: "discord_button",
+        title: "Discord",
+        description: "Opens an invite to the discord server for this module.",
+        category: "General",
+        subcategory: "Links",
+
+        onClick: () => {
+            java.awt.Desktop.getDesktop().browse(new java.net.URI("https://discord.gg/Wj8vcWxGBG"))
+        }
+    })
     // DUNGEONS
     // MASK TIMERS
     .addSwitch({
@@ -19,6 +42,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         category: "Dungeons",
         subcategory: "Masks",
         placeholder: "464",
+        value: "464",
 
         shouldShow: (config) => config.enable_mask_timers
     })
@@ -30,6 +54,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         category: "Dungeons",
         subcategory: "Masks",
         placeholder: "265",
+        value: "265",
 
         shouldShow: (config) => config.enable_mask_timers
     })
@@ -41,6 +66,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         category: "Dungeons",
         subcategory: "Masks",
         placeholder: "2",
+        value: "2",
 
         shouldShow: (config) => config.enable_mask_timers
     })
@@ -124,6 +150,18 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         placeholder: "2",
         value: "2",
         
+        shouldShow: (config) => config.enable_highlight_starred_mobs
+    })
+
+    .addDropDown({
+        configName: "starred_mobs_highlight_type",
+        title: "Highlight Type",
+        description: "The type of highlight to use for mobs.",
+        category: "Dungeons",
+        subcategory: "General",
+        options: ["outline", "filled", "both"],
+        value: 0,
+
         shouldShow: (config) => config.enable_highlight_starred_mobs
     })
 
@@ -406,14 +444,6 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         configName: "enable_ping_command",
         title: "&6ping",
         description: "Enable the ping party command.",
-        category: "Party Commands",
-        subcategory: "Commands"
-    })
-
-    .addSwitch({
-        configName: "enable_tps_command",
-        title: "&6tps",
-        description: "Enable the tps party command.",
         category: "Party Commands",
         subcategory: "Commands"
     })

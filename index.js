@@ -1,5 +1,4 @@
 import settings from "./config";
-//register("command", () => Settings.openGUI()).setName("ca").setAliases("crafter", "crafteraddons");
 
 
 
