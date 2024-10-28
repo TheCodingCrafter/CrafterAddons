@@ -2,7 +2,7 @@
 QOL features for Hypixel Skyblock, mostly aimed at dungeons.
 
 ## Full feature list:
-- Dungeon
+- ### Dungeon
  - Arrowstack locations
  - Blood room notifications
  - F7 Wither bounding box
@@ -11,12 +11,12 @@ QOL features for Hypixel Skyblock, mostly aimed at dungeons.
  - Highlight Wither and Blood Keys
  - Dynamic terminal waypoints
 
-- General
+- ### General
  - Etherwarp overlay
  - Ragnarock axe Notifier
  - Party commands
 
-- Chat
+- ### Chat
  - Party and Guild chat formatting
 
 
