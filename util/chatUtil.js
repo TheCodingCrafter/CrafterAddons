@@ -1,5 +1,5 @@
 function printModMessage(message) {
-    ChatLib.chat("&1[&3Crafter&bAddons&1] &9» " + String(message))
+    ChatLib.chat("&8&l[&r&cca&8&l]&r &c» " + String(message))
 }
 
 function printErrorMessage(message) {

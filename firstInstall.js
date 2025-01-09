@@ -11,6 +11,7 @@ register("tick", () => {
                         `   &r&3Commands\n` +
                         `   &r&d/ca &3&l- &r&bOpens the Config\n` +
                         `   &r&d/ping &3&l- &r&bDisplays your ping to the server\n` +
+                        `   &r&d/cs &3&l- &r&bDisplays Dungeons stats\n` + 
                         `\n` +
                         `   &r&dGithub: https://github.com/TheCodingCrafter/CrafterAddons\n` +
                         `   &r&dDiscord: https://discord.gg/Wj8vcWxGBG\n` +

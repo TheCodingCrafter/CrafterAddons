@@ -25,6 +25,14 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
             java.awt.Desktop.getDesktop().browse(new java.net.URI("https://discord.gg/Wj8vcWxGBG"))
         }
     })
+
+    .addSwitch({
+        configName: "rgb_block_highlight",
+        title: "&6RGB Block Highlight",
+        description: "Highlights blocks with an RGB color.",
+        category: "General",
+        subcategory: "QOL"
+    })
     // DUNGEONS
     // MASK TIMERS
     .addSwitch({
@@ -165,6 +173,60 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         shouldShow: (config) => config.enable_highlight_starred_mobs
     })
 
+    // Auto Refill
+    .addSwitch({
+        configName: "auto_refill_pearls",
+        title: "&6Auto Refill Pearls",
+        description: "Automatically refill ender pearls in your inventory. (will break if pearls are spammed)",
+        category: "Dungeons",
+        subcategory: "General"
+    })
+
+    .addSwitch({
+        configName: "auto_refill_jerries",
+        title: "&6Auto Refill Jerrys",
+        description: "Automatically refill Inflatable Jerrys in your inventory.",
+        category: "Dungeons",
+        subcategory: "General"
+    })
+
+    // ANNOUNCE LEAP
+    .addSwitch({
+        configName: "enable_announce_leap",
+        title: "&6Announce Leap",
+        description: "Announce in party chat when you leap to a party member.",
+        category: "Dungeons",
+        subcategory: "General"
+    })
+
+    .addSwitch({
+        configName: "enable_announce_leap_boss",
+        title: "Only in Boss",
+        description: "Only announce when in the boss room.",
+        category: "Dungeons",
+        subcategory: "General",
+
+        shouldShow: (config) => config.enable_announce_leap
+    })
+
+    .addSwitch({
+        configName: "enable_leap_title",
+        title: "&6Leap Title",
+        description: "Show a title when someone leaps to you. (only works if they have this or azured's leap announce)",
+        category: "Dungeons",
+        subcategory: "General"
+    })
+
+    .addSwitch({
+        configName: "enable_leap_title_boss",
+        title: "Only in Boss",
+        description: "Only show the title when in the boss room.",
+        category: "Dungeons",
+        subcategory: "General",
+
+        shouldShow: (config) => config.enable_leap_title
+    })
+
     // BLOOD HELPER
     .addSwitch({
         configName: "enable_blood_done_title",
@@ -204,6 +266,105 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
 
 
     // GENERAL
+    // OVERLAYs
+    .addSwitch({
+        configName: "enable_fero_overlay",
+        title: "&6Ferocity Overlay",
+        description: "Show an overlay with your ferocity. (Needs Ferocity to be displayed in tab)",
+        category: "General",
+        subcategory: "QOL"
+    })
+
+    .addTextInput({
+        configName: "fero_overlay_x",
+        title: "Ferocity Overlay X",
+        description: "The X position of the ferocity overlay.",
+        category: "General",
+        subcategory: "QOL",
+        placeholder: "50",
+        value: "50",
+
+        shouldShow: (config) => config.enable_fero_overlay
+    })
+
+    .addTextInput({
+        configName: "fero_overlay_y",
+        title: "Ferocity Overlay Y",
+        description: "The Y position of the ferocity overlay.",
+        category: "General",
+        subcategory: "QOL",
+        placeholder: "50",
+        value: "50",
+
+        shouldShow: (config) => config.enable_fero_overlay
+    })
+
+    .addTextInput({
+        configName: "fero_overlay_scale",
+        title: "Ferocity Overlay Scale",
+        description: "The scale of the ferocity overlay.",
+        category: "General",
+        subcategory: "QOL",
+        placeholder: "2",
+        value: "2",
+
+        shouldShow: (config) => config.enable_fero_overlay
+    })
+
+    // magic find overlay
+    .addSwitch({
+        configName: "enable_mf_overlay",
+        title: "&6Magic Find Overlay",
+        description: "Show an overlay with your magic find. (Needs Magic find to be displayed in tab)",
+        category: "General",
+        subcategory: "QOL"
+    })
+
+    .addTextInput({
+        configName: "mf_overlay_x",
+        title: "Magic Find Overlay X",
+        description: "The X position of the magic find overlay.",
+        category: "General",
+        subcategory: "QOL",
+        placeholder: "50",
+        value: "50",
+
+        shouldShow: (config) => config.enable_mf_overlay
+    })
+
+    .addTextInput({
+        configName: "mf_overlay_y",
+        title: "Magic Find Overlay Y",
+        description: "The Y position of the magic find overlay.",
+        category: "General",
+        subcategory: "QOL",
+        placeholder: "100",
+        value: "100",
+
+        shouldShow: (config) => config.enable_mf_overlay
+    })
+
+    .addTextInput({
+        configName: "mf_overlay_scale",
+        title: "Magic Find Overlay Scale",
+        description: "The scale of the magic find overlay.",
+        category: "General",
+        subcategory: "QOL",
+        placeholder: "2",
+        value: "2",
+
+        shouldShow: (config) => config.enable_mf_overlay
+    })
+
+    // voidgloom display
+    .addSwitch({
+        configName: "enable_voidgloom_display",
+        title: "&6Voidgloom Display",
+        description: "Show an overlay with some stats about the current enderman slayer.",
+        category: "General",
+        subcategory: "QOL"
+    })
+
     // CHAT
     // CHAT PREFIX
     .addSwitch({
@@ -365,7 +526,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
     // BOX NECRON
     .addSwitch({
         configName: "enable_box_necron",
-        title: "Box Necron",
+        title: "&6Box Necron",
         description: "Highlight Necron, Storm, Goldor, and Maxor in dungeons.",
         category: "Dungeons",
         subcategory: "General"
@@ -377,6 +538,18 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         description: "The color to use for highlighting.",
         category: "Dungeons",
         subcategory: "General",
+
+        shouldShow: (config) => config.enable_box_necron
+    })
+
+    .addDropDown({
+        configName: "box_necron_type",
+        title: "Highlight Type",
+        description: "The type of highlight to use for mobs.",
+        category: "Dungeons",
+        subcategory: "General",
+        options: ["outline", "filled", "both"],
+        value: 0,
 
         shouldShow: (config) => config.enable_box_necron
     })
@@ -398,7 +571,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         configName: "party_command_delay",
         title: "&6Party Command Delay",
         description: "how long to wait before sending a response (in ms)",
-        category: "Party Commands",
+        category: "Party Cmds",
         subcategory: "Config",
         placeholder: "200",
         value: "200"
@@ -408,7 +581,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         configName: "party_command_prefix",
         title: "&6Party Command Prefix",
         description: "The prefix to use for party commands.",
-        category: "Party Commands",
+        category: "Party Cmds",
         subcategory: "Config",
         placeholder: "!",
         value: "!"
@@ -420,7 +593,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         configName: "enable_rng_command",
         title: "&6rng",
         description: "Enable the rng party command.",
-        category: "Party Commands",
+        category: "Party Cmds",
         subcategory: "Commands"
     })
 
@@ -428,7 +601,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         configName: "enable_dice_command",
         title: "&6dice",
         description: "Enable the dice party command.",
-        category: "Party Commands",
+        category: "Party Cmds",
         subcategory: "Commands"
     })
 
@@ -436,7 +609,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         configName: "enable_8ball_command",
         title: "&68ball",
         description: "Enable the 8ball party command.",
-        category: "Party Commands",
+        category: "Party Cmds",
         subcategory: "Commands"
     })
 
@@ -444,7 +617,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         configName: "enable_ping_command",
         title: "&6ping",
         description: "Enable the ping party command.",
-        category: "Party Commands",
+        category: "Party Cmds",
         subcategory: "Commands"
     })
 
@@ -452,7 +625,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         configName: "enable_floor_command",
         title: "&6Dungeon Floor command",
         description: "Enable the floor party command. (eg. !f7, !m5)",
-        category: "Party Commands",
+        category: "Party Cmds",
         subcategory: "Commands"
     })
 
@@ -460,7 +633,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         configName: "enable_ptme_command",
         title: "&6ptme",
         description: "Enable the ptme party command.",
-        category: "Party Commands",
+        category: "Party Cmds",
         subcategory: "Commands"
     })
 
@@ -468,7 +641,7 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         configName: "enable_warp_command",
         title: "&6warp",
         description: "Enable the warp party command.",
-        category: "Party Commands",
+        category: "Party Cmds",
         subcategory: "Commands"
     })
 
@@ -476,9 +649,68 @@ const defaultConf = new DefaultConfig("CrafterAddons", "settings.json")
         configName: "enable_allinv_command",
         title: "&6allinv",
         description: "Enable the allinv party command.",
-        category: "Party Commands",
+        category: "Party Cmds",
         subcategory: "Commands"
     })
+
+    // CRIMSON ISLE
+    .addSwitch({
+        configName: "enable_flare_highlight",
+        title: "&6Highlight Flares",
+        description: "Highlight flares in Crimson Isle.",
+        category: "Crimson Isle",
+        subcategory: "Flare Grinding"
+    })
+
+    .addColorPicker({
+        configName: "flare_highlight_color",
+        title: "Flare Highlight Color",
+        description: "The color to use for highlighting flares.",
+        category: "Crimson Isle",
+        subcategory: "Flare Grinding",
+        value: [255, 255, 255, 255],
+
+        shouldShow: (config) => config.enable_flare_highlight
+    })
+    
+    // vanq sharing
+    .addSwitch({
+        configName: "enable_vanq_share",
+        title: "&6Vanquisher Sharing",
+        description: "Automatically share spawned vanquishers in party chat.",
+        category: "Vanquisher"
+    })
+
+    .addSwitch({
+        configName: "enable_vanq_receive",
+        title: "&6Receive Vanquishers",
+        description: "Receive vanquisher spawns from party chat.",
+        category: "Vanquisher"
+    })
+
+    // MINING
+    .addSwitch({
+        configName: "enable_pristine_title",
+        title: "&6Pristine Title",
+        description: "Show a title with Pristine Proc",
+        category: "Mining"
+    })
+
+    .addSwitch({
+        configName: "enable_pristine_chat",
+        title: "&6Pristine Chat",
+        description: "Format chat message for Pristine Proc",
+        category: "Mining"
+    })
+
+    .addTextInput({
+        configName: "pristine_high_proc",
+        title: "High Proc Value",
+        description: "Shows a title if the proc is higher than this value (-1 to disable)",
+        category: "Mining",
+        placeholder: "60",
+    })
+
 
 
 const config = new Settings("CrafterAddons", defaultConf, "color_scheme.json", titleText="&3Crafter&bAddons&r")

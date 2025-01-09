@@ -11,7 +11,7 @@ function NotifyParty(msg) {
 // triggers to detect mask pops
 // SPIRIT MASK
 register("chat", (event) => {
-    NotifyParty("Bonzo Mask Activated (3s)")
+    NotifyParty("Spirit Mask Activated (3s)")
     if (!settings().enable_mask_notifications) { return; }
     printModMessage("&6Spirit Mask Activated") // send chat msg
     cancel(event);
@@ -43,12 +43,12 @@ register("chat", (event) => {
 
 // PHOENIX PET
 register("chat", (event) => {
+    let time = ((parseInt(settings().phoenix_pet_lvl) * 0.02) + 2)
     NotifyParty(`Phoenix Pet Activated (${time}s)`)
     if (!settings().enable_mask_notifications) { return; }
     printModMessage("&5Phoenix Pet Activated") // send chat msg
     cancel(event);
     showTitle("&5&lPhoenix Popped!", "", 1000) // send title and play sound
     World.playSound("note.pling", 100, 2)
-    let time = ((parseInt(settings().phoenix_pet_lvl) * 0.02) + 2)
 }).setCriteria("&r&eYour &r&cPhoenix Pet &r&esaved you from certain death!&r");
 

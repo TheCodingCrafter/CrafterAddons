@@ -1,6 +1,5 @@
 import settings from "./config";
-
-
+import renderBeaconBeam from "../BeaconBeam";
 
 import "./features/maskTimers"
 import "./features/maskNotifications"
@@ -16,3 +15,14 @@ import "./features/highlightKeys"
 import "./features/boxNecron"
 import "./features/ragAxe"
 import "./firstInstall"
+import "./features/autoRefill"
+import "./features/announceLeap"
+import "./features/voidgloomDIsplay"
+import "./features/feroOverlay"
+import "./features/cataStats"
+import "./features/f7Routes"
+import "./features/f7splits"
+import "./features/flares"
+import "./features/vanqShare"
+import "./features/mining"
+import "./features/blockhighlight"
